@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 
-const PlayerSchema = new Schema(
+
+const PlayerSchema = new mongoose.Schema(
 { 
     PlayerID: Number,
     Status: String,
@@ -17,21 +18,68 @@ const PlayerSchema = new Schema(
     BirthCity: String,
     BirthState: String,
     BirthCountry: String,
-    HighSchool: null,
+    HighSchool: String,
     College: String,
     Salary: Number,
     PhotoUrl: String,
     Experience: Number,
     NbaDotComPlayerID: Number,
-},
-    team: {
-    type: mongoose.Types.TeamID,
-    ref: "Team",
+//     // team: {
+//     // type: mongoose.Types.ObjectId,
+//     // ref: 'Team',
+// },
 },
 );
 
-const Player = mongoose.model("Player", PlayerSchmea:
+const Player = mongoose.model("player", PlayerSchema, "player");
 module.exports = Player;
 
 
-  
+// PlayerID: Number,
+// SportsDataID: String,
+// Status: Active,
+// TeamID: Number,
+// Team: String,
+// Jersey: Number,
+// PositionCategory: String,
+// Position: String,
+// FirstName: String,
+// LastName: String,
+// Height: Number,
+// Weight: Number,
+// BirthDate: String,
+// BirthCity: String,
+// BirthState: String,
+// BirthCountry: String,
+// HighSchool: String,
+// College: String,
+// Salary: Number,
+// PhotoUrl: String,
+// SportRadarPlayerID: String,
+// RotoworldPlayerID: Number,
+// RotoWirePlayerID: Number,
+// FantasyAlarmPlayerID: Number,
+// StatsPlayerID: Number,
+// SportsDirectPlayerID: Number,
+// XmlTeamPlayerID: Number,
+// InjuryStatus: String,
+// InjuryBodyPart: String,
+// InjuryStartDate: String,
+// InjuryNotes: String,
+// FanDuelPlayerID: Number,
+// DraftKingsPlayerID: Number,
+// YahooPlayerID: Number,
+// FanDuelName: String,
+// DraftKingsName: String,
+// YahooName: String,
+// DepthChartPosition: String,
+// DepthChartOrder: String,
+// GlobalTeamID: String,
+// FantasyDraftName: String,
+// FantasyDraftPlayerID: Number,
+// UsaTodayPlayerID: Number,
+// UsaTodayHeadshotUrl: String,
+// UsaTodayHeadshotNoBackgroundUrl: String,
+// UsaTodayHeadshotUpdated: String,
+// UsaTodayHeadshotNoBackgroundUpdated: String,
+// NbaDotComPlayerID: Number,

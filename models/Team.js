@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 
-const TeamSchema = new Schema({
+
+const TeamSchema = new mongoose.Schema({
     TeamID: Number,
     Key: String,
     Active: Boolean,
