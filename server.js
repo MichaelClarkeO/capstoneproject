@@ -38,7 +38,7 @@ const PeopleSchema = new mongoose.Schema({
     image: String,
     title: String,
 });
-
+//// BOTH OF THESE MUST BE CHANGED IMMMEDIATELY ////////
 const People = mongoose.model("People", PeopleSchema);
 
 ///////////////////////////////
