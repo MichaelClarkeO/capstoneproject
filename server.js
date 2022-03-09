@@ -5,6 +5,7 @@
 require("dotenv").config();
 // pull PORT from .env, give default value of 3000
 // pull MONGODB_URL from .env
+
 require('./config/db.connection');
 const Player = require('./models/Player');
 require('./models/Team');
@@ -17,7 +18,8 @@ const app = express();
 // import middlware
 const cors = require("cors");
 const morgan = require("morgan");
-
+const playerCtrls = require('./controller/player_controller')
+const teamCtrls = require('./controller/team_controller')
 ///////////////////////////////
 // MiddleWare
 ////////////////////////////////
@@ -26,27 +28,13 @@ app.use(morgan("dev")); // logging
 app.use(express.json()); // parse json bodies
 app.use(express.static('public'));
 const router = express.Router();
+app.use('/player', playerCtrls);
+app.use('/team', teamCtrls);
 ///////////////////////////////
 // ROUTES
 ////////////////////////////////
 // create a test route
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
 
-// PEOPLE INDEX ROUTE
-app.get("/player", async (req, res) => {
-  try {
-    // send all people
-    const allPlayers = await Player.find().exec()
-    console.log(allPlayers)
-     res.json(allPlayers);
-  } catch (error) {
-      console.log(error);
-    //send error
-    res.status(400).json(error);
-  }
-});
 
 // PEOPLE CREATE ROUTE
 app.post("/people", async (req, res) => {

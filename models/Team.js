@@ -13,5 +13,5 @@ const TeamSchema = new mongoose.Schema({
     Division: String,
   });
 
-const Team = mongoose.model("Team", TeamSchema);
+const Team = mongoose.model("team", TeamSchema, "team" );
 module.exports = Team;
