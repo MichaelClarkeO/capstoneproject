@@ -24,10 +24,10 @@ const PlayerSchema = new mongoose.Schema(
     PhotoUrl: String,
     Experience: Number,
     NbaDotComPlayerID: Number,
-//     // team: {
-//     // type: mongoose.Types.ObjectId,
-//     // ref: 'Team',
-// },
+    team: {
+    type: mongoose.Types.ObjectId,
+    ref: 'Team',
+},
 },
 );
 

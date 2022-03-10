@@ -1,25 +1,16 @@
 ///////////////////////////////
 // DEPENDENCIES
 ////////////////////////////////
-// get .env variables
 require("dotenv").config();
-// pull PORT from .env, give default value of 3000
-// pull MONGODB_URL from .env
-
 require('./config/db.connection');
-const Player = require('./models/Player');
-require('./models/Team');
-const PlayerTest = require('./models/playerTest');
 const  {PORT = 3000} = process.env;
-// import express
 const express = require("express");
-// create application object
 const app = express();
-// import middlware
 const cors = require("cors");
 const morgan = require("morgan");
 const playerCtrls = require('./controller/player_controller')
-const teamCtrls = require('./controller/team_controller')
+const teamCtrls = require('./controller/team_controller');
+const Player = require("./models/player");
 ///////////////////////////////
 // MiddleWare
 ////////////////////////////////
@@ -27,7 +18,6 @@ app.use(cors()); // to prevent cors errors, open access to all origins
 app.use(morgan("dev")); // logging
 app.use(express.json()); // parse json bodies
 app.use(express.static('public'));
-const router = express.Router();
 app.use('/player', playerCtrls);
 app.use('/team', teamCtrls);
 ///////////////////////////////
@@ -35,13 +25,13 @@ app.use('/team', teamCtrls);
 ////////////////////////////////
 // create a test route
 
-
 // PEOPLE CREATE ROUTE
+
 app.post("/people", async (req, res) => {
   try {
     // send all people
-    res.json(await People.create(req.body));
-    
+    res.json(await Player.create(req.body));
+    console.log(req.body)
   } catch (error) {
     //send error
     res.status(400).json(error);
