@@ -20,19 +20,7 @@ const userSchema = new mongoose.Schema(
     }, 
 );
 
-const User = mongoose.model('User', userSchema, 'User');
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;
 
-// {
-// userName: 'miniGhost'
-// }, 
-// {
-// firstName: 'Tariq'
-// }, 
-// {
-// lastName: 'St. Patrick'
-// }, 
-// {
-// profileImage: 'https://media.gettyimages.com/photos/actor-michael-rainey-jr-at-2017-ludaday-celebrity-basketball-game-at-picture-id842372238'
-// } 
