@@ -5,10 +5,8 @@ const router = express.Router();
  
  router.get("/", async (req, res) => {
      try {
- 
          res.json(await Team.find({}));
      } catch (error) {
- 
          res.status(400).json(error);
      }
  });
@@ -27,22 +25,18 @@ const router = express.Router();
  
  router.put("/:id", async (req, res) => {
      try {
- 
          res.json(
              await Team.findByIdAndUpdate(req.params.id, req.body, { new: true })
          );
      } catch (error) {
- 
          res.status(400).json(error);
      }
  });
  
  router.delete("/:id", async (req, res) => {
      try {
- 
          res.json(await Team.findByIdAndRemove(req.params.id));
      } catch (error) {
- 
          res.status(400).json(error);
      }
  });

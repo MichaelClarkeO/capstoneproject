@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const connectionStr = 'mongodb://127.0.0.1:27017/test';
+const connectionStr = process.env.MONGODB_URL;
 
 mongoose.connect(connectionStr)
 
